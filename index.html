@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projeção 2026 · Flávio Bolsonaro × Lula no 2º turno</title>
+  <meta name="description" content="Simulação do 2º turno de 2026: Flávio Bolsonaro 51,12% (60.089.860 votos) contra Lula 48,88% (57.445.493). Projeção independente — não é pesquisa eleitoral nem apuração oficial.">
+  <meta name="theme-color" content="#07080a">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://kauffmann07.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Projeção 2026 · Flávio Bolsonaro × Lula">
+  <meta property="og:description" content="Flávio Bolsonaro 51,12% e Lula 48,88% na simulação do 2º turno. Margem de 2.644.366 votos. Projeção independente, não é pesquisa eleitoral.">
+  <meta property="og:url" content="https://kauffmann07.github.io/">
+  <meta property="og:site_name" content="Projeção 2026">
+  <meta property="og:image" content="https://kauffmann07.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Projeção 2026: Flávio Bolsonaro 51,12% contra Lula 48,88% no 2º turno.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projeção 2026 · Flávio Bolsonaro × Lula">
+  <meta name="twitter:description" content="Flávio Bolsonaro 51,12% e Lula 48,88% na simulação do 2º turno. Margem de 2.644.366 votos.">
+  <meta name="twitter:image" content="https://kauffmann07.github.io/og.png">
+  <meta name="twitter:image:alt" content="Projeção 2026: Flávio Bolsonaro 51,12% contra Lula 48,88% no 2º turno.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.className += ' js';</script>
+</head>
+<body>
+  <a class="skip-link" href="#placar">Pular para os dados</a>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Projeção 2026 — voltar ao início">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 2a14 14 0 0 1 0 28Z" fill="#3ddc84"/>
+          <path d="M16 2a14 14 0 0 0 0 28Z" fill="#ff5a5f"/>
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".22"/>
+        </svg>
+        <span class="brand__txt">Projeção <em>2026</em></span>
+      </a>
+      <nav class="nav__links" aria-label="Seções da página">
+        <a href="#placar">Placar</a>
+        <a href="#margem">Margem</a>
+        <a href="#transferencias">Transferências</a>
+        <a href="#abstencao">Abstenção</a>
+        <a href="#historico">Histórico</a>
+        <a href="#metodo">Método</a>
+      </nav>
+      <span class="pill pill--warn"><span class="pill__dot"></span>Simulação</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__aura hero__aura--a" aria-hidden="true"></div>
+      <div class="hero__aura hero__aura--b" aria-hidden="true"></div>
+
+      <div class="wrap hero__inner">
+        <p class="eyebrow reveal"><span class="eyebrow__dot"></span>Projeção independente · 2º turno · 2026</p>
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="sr-only">Projeção do segundo turno de 2026: Flávio Bolsonaro com 51,12% dos votos e Lula com 48,88%.</span>
+          <span class="score" aria-hidden="true">
+            <span class="score__side score__side--a">
+              <span class="score__name"><span class="score__dot"></span>Flávio Bolsonaro</span>
+              <span class="score__pct"><span class="num" data-count="51.12" data-dec="2">51,12</span><span class="score__sym">%</span></span>
+              <span class="score__votes"><span class="num" data-count="60089860">60.089.860</span> votos</span>
+              <span class="score__badge">1º na projeção</span>
+            </span>
+            <span class="score__vs">×</span>
+            <span class="score__side score__side--b">
+              <span class="score__name"><span class="score__dot"></span>Lula</span>
+              <span class="score__pct"><span class="num" data-count="48.88" data-dec="2">48,88</span><span class="score__sym">%</span></span>
+              <span class="score__votes"><span class="num" data-count="57445493">57.445.493</span> votos</span>
+              <span class="score__badge score__badge--muted">2º na projeção</span>
+            </span>
+          </span>
+        </h1>
+
+        <div class="split reveal" role="img" aria-label="Divisão dos votos entre os dois candidatos: Flávio Bolsonaro 51,12% e Lula 48,88%.">
+          <span class="split__tie-label" aria-hidden="true">linha de empate</span>
+          <div class="split__bar">
+            <span class="split__a" style="--w:51.12%"></span>
+            <span class="split__b" style="--w:48.88%"></span>
+            <span class="split__tie" aria-hidden="true"></span>
+          </div>
+          <div class="split__legend" aria-hidden="true">
+            <span class="split__item"><i class="key key--a"></i>Flávio <b>51,12%</b></span>
+            <span class="split__item split__item--r">Lula <b>48,88%</b><i class="key key--b"></i></span>
+          </div>
+        </div>
+
+        <p class="hero__margin reveal"><span>Margem</span> <strong class="num" data-count="2644366">2.644.366</strong> votos <span class="hero__margin-dot">·</span> 2,25 p.p.</p>
+
+        <div class="hero__meta reveal">
+          <div class="hmeta"><span class="hmeta__k">Votos dos dois candidatos</span><span class="hmeta__v"><span class="num" data-count="117535353">117.535.353</span></span></div>
+          <div class="hmeta"><span class="hmeta__k">Abstenção final (est.)</span><span class="hmeta__v"><span class="num" data-count="35234679">35.234.679</span></span></div>
+          <div class="hmeta"><span class="hmeta__k">Base do 1º turno</span><span class="hmeta__v"><span class="num" data-count="119300788">119.300.788</span></span></div>
+        </div>
+
+        <p class="disclaimer reveal"><span class="disclaimer__icon" aria-hidden="true">!</span> <span class="disclaimer__txt">Simulação construída a partir de hipóteses sobre os votos do 1º turno. <strong>Não é pesquisa eleitoral nem apuração oficial.</strong></span></p>
+      </div>
+
+      <a class="scrollcue" href="#placar" aria-label="Ir para o placar">
+        <span class="scrollcue__line" aria-hidden="true"><span></span></span>
+        <span>Explorar os dados</span>
+      </a>
+    </section>
+
+    <section class="section" id="placar" aria-labelledby="placar-h">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">01</span>
+          <h2 id="placar-h">O placar da simulação</h2>
+          <p class="sec-sub">A projeção parte dos votos do 1º turno, soma as transferências dos outros dez candidatos e o retorno de parte dos abstencionistas — e desconta quem deixa de votar.</p>
+        </header>
+
+        <div class="duel">
+          <article class="cand cand--a reveal">
+            <div class="cand__head">
+              <span class="cand__badge">1º lugar</span>
+              <span class="cand__dot" aria-hidden="true"></span>
+            </div>
+            <h3 class="cand__name">Flávio Bolsonaro</h3>
+            <p class="cand__votes"><span class="sr-only">60.089.860 votos</span><span class="num" aria-hidden="true" data-count="60089860">60.089.860</span></p>
+            <p class="cand__pct">51,12% <span>dos votos dos dois candidatos</span></p>
+            <dl class="cand__break">
+              <div><dt>Votos no 1º turno</dt><dd>56.104.503</dd></div>
+              <div><dt>Transferências dos 10 grupos</dt><dd class="pos">+3.916.088</dd></div>
+              <div><dt>Retorno de abstencionistas</dt><dd class="pos">+462.000</dd></div>
+              <div><dt>Novas abstenções</dt><dd class="neg">−392.732</dd></div>
+              <div class="cand__total"><dt>Total projetado</dt><dd>60.089.860</dd></div>
+            </dl>
+          </article>
+
+          <article class="cand cand--b reveal">
+            <div class="cand__head">
+              <span class="cand__badge cand__badge--muted">2º lugar</span>
+              <span class="cand__dot" aria-hidden="true"></span>
+            </div>
+            <h3 class="cand__name">Lula</h3>
+            <p class="cand__votes"><span class="sr-only">57.445.493 votos</span><span class="num" aria-hidden="true" data-count="57445493">57.445.493</span></p>
+            <p class="cand__pct">48,88% <span>dos votos dos dois candidatos</span></p>
+            <dl class="cand__break">
+              <div><dt>Votos no 1º turno</dt><dd>53.879.538</dd></div>
+              <div><dt>Transferências dos 10 grupos</dt><dd class="pos">+3.139.811</dd></div>
+              <div><dt>Retorno de abstencionistas</dt><dd class="pos">+938.000</dd></div>
+              <div><dt>Novas abstenções</dt><dd class="neg">−511.856</dd></div>
+              <div class="cand__total"><dt>Total projetado</dt><dd>57.445.493</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="tiles">
+          <div class="tile reveal">
+            <span class="tile__k">Margem final</span>
+            <span class="tile__v"><span class="num" data-count="2644366">2.644.366</span></span>
+            <span class="tile__n">2,25 pontos percentuais</span>
+          </div>
+          <div class="tile reveal">
+            <span class="tile__k">Votos dos dois candidatos</span>
+            <span class="tile__v"><span class="num" data-count="117535353">117.535.353</span></span>
+            <span class="tile__n">de 119.300.788 no 1º turno</span>
+          </div>
+          <div class="tile reveal">
+            <span class="tile__k">Abstenção final estimada</span>
+            <span class="tile__v"><span class="num" data-count="35234679">35.234.679</span></span>
+            <span class="tile__n">inclui novas abstenções e não transferências</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="margem" aria-labelledby="margem-h">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">02</span>
+          <h2 id="margem-h">O que mudou a margem</h2>
+          <p class="sec-sub">A vantagem de Flávio no 1º turno era de 2.224.965 votos. Três blocos alteraram esse número até a projeção final — e as transferências foram o fator decisivo.</p>
+        </header>
+
+        <div class="margin-grid">
+          <div class="eq reveal">
+            <p class="eq__kicker">A conta da margem · impacto líquido</p>
+            <div class="eq__row"><span>Margem no 1º turno</span><b>2.224.965</b></div>
+            <div class="eq__row eq__row--pos"><span>Transferências dos 10 grupos</span><b>+776.277</b></div>
+            <div class="eq__row eq__row--pos"><span>Abstenção dos próprios eleitores</span><b>+119.124</b></div>
+            <div class="eq__row eq__row--neg"><span>Retorno de abstencionistas</span><b>−476.000</b></div>
+            <div class="eq__row eq__row--total"><span>Margem projetada</span><b>≈ 2.644.366</b></div>
+            <p class="eq__note">Valores em votos. Cálculos com decimais intermediários, arredondados para pessoas inteiras; pequenas diferenças de uma unidade são esperadas.</p>
+          </div>
+
+          <div class="impact reveal">
+            <div class="impact__head">
+              <span class="impact__cap">← favorece Lula</span>
+              <span class="impact__cap">favorece Flávio →</span>
+            </div>
+
+            <div class="impact__row">
+              <span class="impact__label">Transferências<br><em>dos 10 grupos</em></span>
+              <div class="impact__track"><i class="impact__zero" aria-hidden="true"></i><span class="impact__bar impact__bar--pos" style="--w:48.50%"></span></div>
+              <span class="impact__val impact__val--pos">+776.277</span>
+            </div>
+
+            <div class="impact__row">
+              <span class="impact__label">Abstenção<br><em>dos próprios eleitores</em></span>
+              <div class="impact__track"><i class="impact__zero" aria-hidden="true"></i><span class="impact__bar impact__bar--pos" style="--w:7.45%"></span></div>
+              <span class="impact__val impact__val--pos">+119.124</span>
+            </div>
+
+            <div class="impact__row">
+              <span class="impact__label">Retorno<br><em>de abstencionistas</em></span>
+              <div class="impact__track"><i class="impact__zero" aria-hidden="true"></i><span class="impact__bar impact__bar--neg" style="--w:29.75%"></span></div>
+              <span class="impact__val impact__val--neg">−476.000</span>
+            </div>
+
+            <p class="impact__note">Impacto de cada bloco sobre a diferença entre os candidatos. Saldo líquido: <b>+419,4 mil</b> para Flávio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="transferencias" aria-labelledby="trf-h">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">03</span>
+          <h2 id="trf-h">De onde vêm os votos</h2>
+          <p class="sec-sub">Os dez candidatos que não disputam o 2º turno somam 9.316.747 votos. A simulação distribui cada eleitorado entre Flávio, Lula ou abstenção/não transferência.</p>
+        </header>
+
+        <div class="legend reveal" aria-hidden="true">
+          <span class="legend__item"><i class="key key--a"></i>Flávio Bolsonaro</span>
+          <span class="legend__item"><i class="key key--b"></i>Lula</span>
+          <span class="legend__item"><i class="key key--n"></i>Abstenção / não transferência</span>
+        </div>
+
+        <div class="trf-grid">
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Augusto Cury</h3>
+              <p><span>3.448.569</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Augusto Cury: 31% para Flávio, 53% para Lula, 16% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:31%"><b>31%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:53%"><b>53%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:16%"><b>16%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>1.069.056</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>1.827.742</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>551.771</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Ronaldo Caiado</h3>
+              <p><span>2.605.148</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Ronaldo Caiado: 51% para Flávio, 23% para Lula, 26% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:51%"><b>51%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:23%"><b>23%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:26%"><b>26%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>1.328.625</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>599.184</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>677.338</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Renan Santos</h3>
+              <p><span>2.675.887</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Renan Santos: 46% para Flávio, 19% para Lula, 35% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:46%"><b>46%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:19%"><b>19%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:35%"><b>35%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>1.230.908</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>508.419</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>936.560</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Romeu Zema</h3>
+              <p><span>326.488</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Romeu Zema: 71% para Flávio, 17% para Lula, 12% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:71%"><b>71%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:17%"><b>17%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:12%"><b>12%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>231.806</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>55.503</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>39.179</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Samara Martins</h3>
+              <p><span>122.911</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Samara Martins: 3,7% para Flávio, 72,6% para Lula, 23,7% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a trf__seg--tiny" style="--w:3.7%"><b>3,7%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:72.6%"><b>72,6%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:23.7%"><b>23,7%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>4.548</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>89.233</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>29.130</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Hertz Dias</h3>
+              <p><span>43.103</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Hertz Dias: 21,8% para Flávio, 66,4% para Lula, 11,8% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:21.8%"><b>21,8%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:66.4%"><b>66,4%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:11.8%"><b>11,8%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>9.396</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>28.620</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>5.086</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Clariana Barão</h3>
+              <p><span>40.043</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Clariana Barão: 68,7% para Flávio, 8,6% para Lula, 22,7% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:68.7%"><b>68,7%</b></span>
+              <span class="trf__seg trf__seg--b trf__seg--tiny" style="--w:8.6%"><b>8,6%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:22.7%"><b>22,7%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>27.510</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>3.444</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>9.090</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Edmilson Costa</h3>
+              <p><span>22.693</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Edmilson Costa: 9,3% para Flávio, 67,2% para Lula, 23,5% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a trf__seg--tiny" style="--w:9.3%"><b>9,3%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:67.2%"><b>67,2%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:23.5%"><b>23,5%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>2.110</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>15.250</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>5.333</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Wilson Grassi</h3>
+              <p><span>16.881</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Wilson Grassi: 64,9% para Flávio, 11,7% para Lula, 23,4% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a" style="--w:64.9%"><b>64,9%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:11.7%"><b>11,7%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:23.4%"><b>23,4%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>10.956</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>1.975</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>3.950</dd></div>
+            </dl>
+          </article>
+
+          <article class="trf reveal">
+            <header class="trf__head">
+              <h3>Rui Costa Pimenta</h3>
+              <p><span>15.024</span> votos no 1º turno</p>
+            </header>
+            <div class="trf__bar" role="img" aria-label="Rui Costa Pimenta: 7,8% para Flávio, 69,5% para Lula, 22,7% de abstenção ou não transferência.">
+              <span class="trf__seg trf__seg--a trf__seg--tiny" style="--w:7.8%"><b>7,8%</b></span>
+              <span class="trf__seg trf__seg--b" style="--w:69.5%"><b>69,5%</b></span>
+              <span class="trf__seg trf__seg--n" style="--w:22.7%"><b>22,7%</b></span>
+            </div>
+            <dl class="trf__nums">
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>1.172</dd></div>
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>10.442</dd></div>
+              <div><dt><i class="key key--n"></i>Abstenção</dt><dd>3.410</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="insights">
+          <article class="insight reveal">
+            <span class="insight__k">Maior volume para Flávio</span>
+            <p><b>Ronaldo Caiado</b> entrega 1.328.625 votos a Flávio — o maior bloco individual.</p>
+          </article>
+          <article class="insight reveal">
+            <span class="insight__k">Maior taxa pró-Lula</span>
+            <p><b>Samara Martins</b> tem a maior fatia pró-Lula: 72,6% dos seus 122.911 votos.</p>
+          </article>
+          <article class="insight reveal">
+            <span class="insight__k">Maior taxa pró-Flávio</span>
+            <p><b>Romeu Zema</b> tem a maior fatia pró-Flávio: 71% dos seus 326.488 votos.</p>
+          </article>
+        </div>
+
+        <p class="saldo reveal"><span class="saldo__k">Saldo das transferências</span> <strong>+776.277</strong> votos para Flávio</p>
+      </div>
+    </section>
+
+    <section class="section" id="abstencao" aria-labelledby="abs-h">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">04</span>
+          <h2 id="abs-h">Quem sai e quem volta</h2>
+          <p class="sec-sub">Duas hipóteses de comportamento eleitoral completam o modelo: eleitores dos dois candidatos que deixam de votar e abstencionistas do 1º turno que retornam às urnas.</p>
+        </header>
+
+        <div class="abs-grid">
+          <article class="abs reveal">
+            <header class="abs__head">
+              <span class="abs__k">Novas abstenções</span>
+              <h3 aria-label="904.587 novas abstenções"><span class="num" aria-hidden="true" data-count="904587">904.587</span></h3>
+              <p>eleitores de Flávio e Lula que deixam de votar no 2º turno</p>
+            </header>
+            <div class="abs__bar" role="img" aria-label="Das novas abstenções, 43,4% são eleitores de Flávio e 56,6% de Lula.">
+              <span class="abs__seg abs__seg--a" style="--w:43.4%"><b>43,4%</b></span>
+              <span class="abs__seg abs__seg--b" style="--w:56.6%"><b>56,6%</b></span>
+            </div>
+            <dl class="abs__list">
+              <div><dt><i class="key key--a"></i>Flávio · 0,70% dos seus</dt><dd>392.732</dd></div>
+              <div><dt><i class="key key--b"></i>Lula · 0,95% dos seus</dt><dd>511.856</dd></div>
+            </dl>
+            <p class="abs__note">Como Lula perde mais votos em termos absolutos, Flávio ganha 119.124 na margem.</p>
+          </article>
+
+          <article class="abs reveal">
+            <header class="abs__head">
+              <span class="abs__k">Retorno de abstencionistas</span>
+              <h3 aria-label="1.400.000 abstencionistas retornam"><span class="num" aria-hidden="true" data-count="1400000">1.400.000</span></h3>
+              <p>pessoas que se abstiveram no 1º turno voltam a votar</p>
+            </header>
+            <div class="abs__bar" role="img" aria-label="Dos 1,4 milhão que retornam, 67% votam em Lula e 33% em Flávio.">
+              <span class="abs__seg abs__seg--b" style="--w:67%"><b>67%</b></span>
+              <span class="abs__seg abs__seg--a" style="--w:33%"><b>33%</b></span>
+            </div>
+            <dl class="abs__list">
+              <div><dt><i class="key key--b"></i>Lula</dt><dd>938.000</dd></div>
+              <div><dt><i class="key key--a"></i>Flávio</dt><dd>462.000</dd></div>
+            </dl>
+            <p class="abs__note">Vantagem de 476.000 votos para Lula neste grupo — o que reduz a margem final.</p>
+          </article>
+        </div>
+
+        <div class="abs-eq reveal">
+          <div class="abs-eq__head">
+            <span class="abs-eq__k">Abstenção final estimada</span>
+            <strong class="num" data-count="35234679">35.234.679</strong>
+          </div>
+          <div class="abs-eq__terms">
+            <div class="term"><span>Inicial</span><b>33.469.244</b></div>
+            <i aria-hidden="true">+</i>
+            <div class="term"><span>Novas abstenções</span><b>904.587</b></div>
+            <i aria-hidden="true">+</i>
+            <div class="term"><span>Não transferências</span><b>2.260.848</b></div>
+            <i aria-hidden="true">−</i>
+            <div class="term"><span>Retornos</span><b>1.400.000</b></div>
+            <i aria-hidden="true">=</i>
+            <div class="term term--total"><span>Final estimada</span><b>35.234.679</b></div>
+          </div>
+          <p class="abs-eq__note">Estimativa. As categorias de abstenção e não transferência foram simplificadas no modelo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="historico" aria-labelledby="hist-h">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">05</span>
+          <h2 id="hist-h">Uma margem pequena na série histórica</h2>
+          <p class="sec-sub">Comparada aos segundos turnos de 2018 e 2022, a projeção de 2026 tem margem menor que a vitória de 2018 e um pouco maior que a de 2022.</p>
+        </header>
+
+        <div class="hist reveal">
+          <div class="hist__row">
+            <div class="hist__meta"><span class="hist__year">2018</span><span class="hist__who">Jair Bolsonaro</span></div>
+            <div class="hist__track"><span class="hist__bar hist__bar--2018" style="--w:100%"></span></div>
+            <span class="hist__val">10.756.941</span>
+          </div>
+          <div class="hist__row">
+            <div class="hist__meta"><span class="hist__year">2022</span><span class="hist__who">Lula</span></div>
+            <div class="hist__track"><span class="hist__bar hist__bar--2022" style="--w:19.89%"></span></div>
+            <span class="hist__val">2.139.645</span>
+          </div>
+          <div class="hist__row hist__row--sim">
+            <div class="hist__meta"><span class="hist__year">2026</span><span class="hist__who">Flávio Bolsonaro <em>simulação</em></span></div>
+            <div class="hist__track"><span class="hist__bar hist__bar--2026" style="--w:24.58%"></span></div>
+            <span class="hist__val">2.644.366</span>
+          </div>
+        </div>
+
+        <div class="hist__chips reveal">
+          <span class="chip chip--neg">−8.112.575 vs. 2018</span>
+          <span class="chip chip--pos">+504.721 vs. 2022</span>
+          <span class="chip chip--muted">margem em votos</span>
+        </div>
+
+        <p class="table-hint">Deslize a tabela para ver 2022 e 2026 <span aria-hidden="true">→</span></p>
+
+        <div class="table-wrap reveal" tabindex="0" role="region" aria-label="Tabela comparativa entre 2018, 2022 e a simulação de 2026">
+          <table class="table">
+            <caption class="sr-only">Comparação entre a simulação de 2026 e os resultados oficiais de 2018 e 2022</caption>
+            <thead>
+              <tr>
+                <th scope="col">Indicador</th>
+                <th scope="col">2018</th>
+                <th scope="col">2022</th>
+                <th scope="col" class="is-sim">2026 <span>simulação</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1º colocado</th>
+                <td><b>Jair Bolsonaro</b><span>57.797.847 · 55,13%</span></td>
+                <td><b>Lula</b><span>60.345.999 · 50,90%</span></td>
+                <td class="is-sim"><b>Flávio Bolsonaro</b><span>60.089.860 · 51,12%*</span></td>
+              </tr>
+              <tr>
+                <th scope="row">2º colocado</th>
+                <td><b>Fernando Haddad</b><span>47.040.906 · 44,87%</span></td>
+                <td><b>Jair Bolsonaro</b><span>58.206.354 · 49,10%</span></td>
+                <td class="is-sim"><b>Lula</b><span>57.445.493 · 48,88%*</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Margem</th>
+                <td>10.756.941</td>
+                <td>2.139.645</td>
+                <td class="is-sim">2.644.366</td>
+              </tr>
+              <tr>
+                <th scope="row">Abstenção</th>
+                <td>21,30%</td>
+                <td>20,59%</td>
+                <td class="is-sim">35.234.679 <span>estimadas</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notes reveal">
+          <p><b>*</b> Percentuais da simulação calculados sobre a soma dos votos dos dois candidatos. Percentuais históricos são oficiais, sobre votos válidos.</p>
+          <p><b>**</b> A abstenção de 2026 é uma estimativa em votos, não um dado oficial, e não deve ser comparada diretamente às taxas percentuais de 2018 e 2022.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--metodo" id="metodo" aria-labelledby="metodo-h">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-num">06</span>
+          <h2 id="metodo-h">Como ler esta projeção</h2>
+          <p class="sec-sub">Transparência sobre o que foi calculado, quais hipóteses foram usadas e o que este exercício não é.</p>
+        </header>
+
+        <div class="alert reveal">
+          <span class="alert__icon" aria-hidden="true">!</span>
+          <div>
+            <h3>Isto é uma simulação, não uma pesquisa eleitoral.</h3>
+            <p>Os números não vêm de coleta de intenção de voto nem de apuração oficial. São um exercício de cenário com premissas fixas de transferência, comportamento e retorno de abstencionistas — que podem não se confirmar.</p>
+          </div>
+        </div>
+
+        <div class="method-grid">
+          <article class="method reveal">
+            <span class="method__n">01</span>
+            <h3>Base de votos</h3>
+            <p>Os doze candidatos do 1º turno somam <b>119.300.788</b> votos válidos. A abstenção inicial considerada é de <b>33.469.244</b>.</p>
+          </article>
+          <article class="method reveal">
+            <span class="method__n">02</span>
+            <h3>Transferências</h3>
+            <p>Cada um dos dez grupos tem percentuais fixos de destino. As transferências somam <b>3.916.088</b> para Flávio e <b>3.139.811</b> para Lula.</p>
+          </article>
+          <article class="method reveal">
+            <span class="method__n">03</span>
+            <h3>Mudança de comportamento</h3>
+            <p><b>0,70%</b> dos eleitores de Flávio e <b>0,95%</b> dos eleitores de Lula deixam de votar — 392.732 e 511.856 votos, respectivamente.</p>
+          </article>
+          <article class="method reveal">
+            <span class="method__n">04</span>
+            <h3>Retorno de abstencionistas</h3>
+            <p><b>1,4 milhão</b> de pessoas que se abstiveram no 1º turno voltam a votar: 67% para Lula (938.000) e 33% para Flávio (462.000).</p>
+          </article>
+        </div>
+
+        <div class="details reveal">
+          <details>
+            <summary>Ficha técnica e números de controle</summary>
+            <dl class="spec">
+              <div><dt>Votos válidos dos 12 candidatos no 1º turno</dt><dd>119.300.788</dd></div>
+              <div><dt>Abstenções iniciais</dt><dd>33.469.244</dd></div>
+              <div><dt>Brancos informados</dt><dd>2.300.798</dd></div>
+              <div><dt>Nulos informados</dt><dd>3.674.249</dd></div>
+              <div><dt>Transferências para Flávio</dt><dd>3.916.088</dd></div>
+              <div><dt>Transferências para Lula</dt><dd>3.139.811</dd></div>
+              <div><dt>Abstenção / não transferência</dt><dd>2.260.848</dd></div>
+              <div><dt>Novas abstenções</dt><dd>904.587</dd></div>
+              <div><dt>Retorno de abstencionistas</dt><dd>1.400.000</dd></div>
+              <div><dt>Votos finais dos dois candidatos</dt><dd>117.535.353</dd></div>
+              <div><dt>Margem final</dt><dd>2.644.366</dd></div>
+              <div><dt>Abstenção final estimada</dt><dd>35.234.679</dd></div>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Base do 1º turno: os 12 candidatos</summary>
+            <div class="details__body">
+              <p>Votos e percentuais informados para o 1º turno. A soma dos 12 candidatos é de <b>119.300.788</b> votos válidos; brancos e nulos não entram nessa base.</p>
+              <div class="table-wrap table-wrap--base" tabindex="0" role="region" aria-label="Votos e percentuais dos 12 candidatos no 1º turno">
+                <table class="table table--base">
+                  <thead>
+                    <tr><th scope="col">Candidato</th><th scope="col">Votos</th><th scope="col">% válidos</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><th scope="row">Flávio Bolsonaro</th><td>56.104.503</td><td>47,03%</td></tr>
+                    <tr><th scope="row">Lula</th><td>53.879.538</td><td>45,16%</td></tr>
+                    <tr><th scope="row">Augusto Cury</th><td>3.448.569</td><td>2,89%</td></tr>
+                    <tr><th scope="row">Renan Santos</th><td>2.675.887</td><td>2,24%</td></tr>
+                    <tr><th scope="row">Ronaldo Caiado</th><td>2.605.148</td><td>2,18%</td></tr>
+                    <tr><th scope="row">Romeu Zema</th><td>326.488</td><td>0,27%</td></tr>
+                    <tr><th scope="row">Samara Martins</th><td>122.911</td><td>0,10%</td></tr>
+                    <tr><th scope="row">Hertz Dias</th><td>43.103</td><td>0,04%</td></tr>
+                    <tr><th scope="row">Clariana Barão</th><td>40.043</td><td>0,03%</td></tr>
+                    <tr><th scope="row">Edmilson Costa</th><td>22.693</td><td>0,02%</td></tr>
+                    <tr><th scope="row">Wilson Grassi</th><td>16.881</td><td>0,01%</td></tr>
+                    <tr><th scope="row">Rui Costa Pimenta</th><td>15.024</td><td>0,01%</td></tr>
+                    <tr class="table__total"><th scope="row">Total</th><td>119.300.788</td><td>100,00%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>Os percentuais são os informados e podem não somar exatamente 100% por arredondamento.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Notas de consistência e limitações</summary>
+            <div class="details__body">
+              <p>Os números finais reproduzem a projeção original. Como as contas combinaram valores decimais intermediários e foram arredondadas para pessoas inteiras, a soma visual das parcelas pode diferir em algumas unidades dos totais, e a diferença entre percentuais exibidos pode variar em até 0,01 p.p. A margem e os totais seguem os valores fornecidos.</p>
+              <p>Os 12 candidatos do 1º turno estão modelados. Brancos e nulos informados (2.300.798 e 3.674.249) não entram na base de votos válidos usada nas transferências. A categoria abstenção/não transferência é simplificada e não equivale necessariamente a uma previsão real de comparecimento.</p>
+              <p>Os percentuais de transferência de cada grupo somam 100%; os votos absolutos usam os percentuais exatos antes do arredondamento.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Fontes e privacidade</summary>
+            <div class="details__body">
+              <p>Resultados históricos de 2018 e 2022: Tribunal Superior Eleitoral (TSE). Projeção de 2026: dados informados pelo autor desta página.</p>
+              <p>Esta página é estática, não usa cookies, não coleta dados e não possui analytics.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Projeção 2026 — voltar ao início">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 2a14 14 0 0 1 0 28Z" fill="#3ddc84"/>
+            <path d="M16 2a14 14 0 0 0 0 28Z" fill="#ff5a5f"/>
+            <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".22"/>
+          </svg>
+          <span class="brand__txt">Projeção <em>2026</em></span>
+        </a>
+        <p class="footer__note">Simulação independente do 2º turno de 2026.<br>Não é pesquisa eleitoral nem resultado oficial.</p>
+      </div>
+      <div class="footer__side">
+        <div class="footer__actions">
+          <button class="btn" id="copy-link" type="button">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5h6.5V10" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3.5" y="5.5" width="7" height="7" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            Copiar link
+          </button>
+          <a class="btn btn--ghost" href="#top">Voltar ao topo ↑</a>
+        </div>
+        <p class="footer__meta">HTML, CSS e JavaScript puro · outubro de 2026<br><a href="https://github.com/kauffmann07" rel="noopener">github.com/kauffmann07</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
