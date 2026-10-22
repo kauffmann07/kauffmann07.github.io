@@ -13,10 +13,13 @@
 
   const progress = document.getElementById('progress');
   const nav = document.getElementById('nav');
-  const navLinks = [...document.querySelectorAll('.nav__links a')];
-  const sections = navLinks
-    .map((link) => document.querySelector(link.getAttribute('href')))
-    .filter(Boolean);
+  const toTop = document.getElementById('to-top');
+  const navLinks = [...document.querySelectorAll('[data-nav-link]')];
+  const sections = [...new Set(
+    navLinks
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean)
+  )];
 
   let ticking = false;
 
@@ -34,7 +37,15 @@
     }
 
     for (const link of navLinks) {
-      link.classList.toggle('is-active', current !== null && link.getAttribute('href') === `#${current.id}`);
+      const isActive = current !== null && link.getAttribute('href') === `#${current.id}`;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+
+    if (toTop) {
+      const nearFooter = doc.scrollHeight - (y + window.innerHeight) < 260;
+      toTop.hidden = y < 700 || nearFooter;
     }
 
     ticking = false;
@@ -48,6 +59,24 @@
   }, { passive: true });
 
   onScroll();
+
+  if (toTop) {
+    toTop.addEventListener('click', () => {
+      const top = document.getElementById('top');
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      if (top) top.focus({ preventScroll: true });
+    });
+  }
+
+  const skipLink = document.querySelector('.skip-link');
+  if (skipLink) {
+    skipLink.addEventListener('click', () => {
+      const target = document.getElementById('placar');
+      if (!target) return;
+      target.setAttribute('tabindex', '-1');
+      requestAnimationFrame(() => target.focus({ preventScroll: true }));
+    });
+  }
 
   /* ---------- reveal ---------- */
 
@@ -79,20 +108,33 @@
   let printMode = false;
 
   if (!reduceMotion) {
-    for (const el of numbers) {
-      const decimals = Number(el.dataset.dec || 0);
-      el.textContent = decimals ? fmtDec.format(0) : fmtInt.format(0);
-    }
-
-    const countObserver = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        countObserver.unobserve(entry.target);
-        countUp(entry.target);
+    if ('IntersectionObserver' in window) {
+      // Só zera o que já está na primeira dobra. O restante mantém o valor
+      // final no HTML para leitores de tela, buscadores e links profundos.
+      for (const el of numbers.filter((item) => item.closest('.hero'))) {
+        const decimals = Number(el.dataset.dec || 0);
+        el.textContent = decimals ? fmtDec.format(0) : fmtInt.format(0);
       }
-    }, { threshold: 0.4, rootMargin: '0px 0px -4% 0px' });
 
-    numbers.forEach((el) => countObserver.observe(el));
+      const countObserver = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          countObserver.unobserve(entry.target);
+          const decimals = Number(entry.target.dataset.dec || 0);
+          entry.target.textContent = decimals ? fmtDec.format(0) : fmtInt.format(0);
+          countUp(entry.target);
+        }
+      }, { threshold: 0.4, rootMargin: '0px 0px -4% 0px' });
+
+      numbers.forEach((el) => countObserver.observe(el));
+    } else {
+      for (const el of numbers) {
+        const decimals = Number(el.dataset.dec || 0);
+        el.textContent = decimals
+          ? fmtDec.format(Number(el.dataset.count))
+          : fmtInt.format(Number(el.dataset.count));
+      }
+    }
   }
 
   function countUp(el) {
@@ -208,6 +250,171 @@
   window.addEventListener('afterprint', () => {
     for (const item of details) {
       if (item.dataset.wasOpen === '0') item.open = false;
+    }
+  });
+
+  const printButton = document.getElementById('print-page');
+  if (printButton) printButton.addEventListener('click', () => window.print());
+
+  /* ---------- mobile menu ---------- */
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let menuOpen = false;
+
+  function setMenu(open, returnFocus = true) {
+    if (!menuToggle || !mobileMenu) return;
+    menuOpen = open;
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    mobileMenu.hidden = !open;
+    nav?.classList.toggle('is-menu-open', open);
+    if (!open && returnFocus) menuToggle.focus();
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => setMenu(!menuOpen));
+
+    for (const link of mobileMenu.querySelectorAll('a[href^="#"]')) {
+      link.addEventListener('click', () => {
+        const target = document.querySelector(link.getAttribute('href'));
+        setMenu(false, false);
+        if (!target) return;
+        const heading = target.querySelector('h1, h2');
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          requestAnimationFrame(() => heading.focus({ preventScroll: true }));
+        }
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (!menuOpen) return;
+      if (mobileMenu.contains(event.target) || menuToggle.contains(event.target)) return;
+      setMenu(false, false);
+    });
+
+    const menuMedia = window.matchMedia('(max-width: 880px)');
+    const closeOnDesktop = (event) => {
+      if (!event.matches && menuOpen) setMenu(false, false);
+    };
+    if (typeof menuMedia.addEventListener === 'function') menuMedia.addEventListener('change', closeOnDesktop);
+    else menuMedia.addListener(closeOnDesktop);
+  }
+
+  /* ---------- help dialog ---------- */
+
+  const help = document.getElementById('help-dialog');
+  const helpOpeners = [...document.querySelectorAll('[data-help-open]')];
+  let helpOpener = null;
+  let helpFallback = false;
+  let helpReturnFocus = true;
+
+  function focusHelpTarget(selector) {
+    const target = document.querySelector(selector);
+    if (!target) return;
+    const heading = target.querySelector('h1, h2');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      requestAnimationFrame(() => heading.focus({ preventScroll: true }));
+    }
+  }
+
+  function afterHelpClose() {
+    document.body.classList.remove('is-dialog-open');
+    const opener = helpOpener;
+    helpOpener = null;
+    const shouldFocus = helpReturnFocus;
+    helpReturnFocus = true;
+    if (!shouldFocus) return;
+    if (opener && opener.isConnected && opener.getClientRects().length) {
+      opener.focus();
+    } else if (menuToggle && getComputedStyle(menuToggle).display !== 'none') {
+      menuToggle.focus();
+    }
+  }
+
+  function openHelp(opener) {
+    if (!help || help.open) return;
+    if (menuOpen) setMenu(false, false);
+    helpOpener = opener || document.activeElement;
+    helpReturnFocus = true;
+    document.body.classList.add('is-dialog-open');
+    try {
+      if (typeof help.showModal === 'function') {
+        helpFallback = false;
+        help.showModal();
+      } else {
+        helpFallback = true;
+        help.setAttribute('open', '');
+      }
+    } catch {
+      helpFallback = true;
+      help.setAttribute('open', '');
+    }
+    const closeButton = help.querySelector('button[data-help-close]');
+    if (closeButton) closeButton.focus();
+  }
+
+  function closeHelp(returnFocus = true) {
+    if (!help) return;
+    helpReturnFocus = returnFocus;
+    if (!helpFallback && typeof help.close === 'function' && help.open) {
+      help.close();
+    } else {
+      help.removeAttribute('open');
+      helpFallback = false;
+      afterHelpClose();
+    }
+  }
+
+  if (help) {
+    help.addEventListener('close', afterHelpClose);
+
+    for (const opener of helpOpeners) {
+      opener.addEventListener('click', () => openHelp(opener));
+    }
+
+    for (const closeButton of help.querySelectorAll('button[data-help-close]')) {
+      closeButton.addEventListener('click', () => closeHelp());
+    }
+
+    for (const link of help.querySelectorAll('a[href^="#"]')) {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const selector = link.getAttribute('href');
+        closeHelp(false);
+        focusHelpTarget(selector);
+        const target = document.querySelector(selector);
+        if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+    }
+
+    help.addEventListener('click', (event) => {
+      if (event.target !== help) return;
+      const rect = help.getBoundingClientRect();
+      const outside = event.clientX < rect.left || event.clientX > rect.right
+        || event.clientY < rect.top || event.clientY > rect.bottom;
+      if (outside) closeHelp();
+    });
+  }
+
+  function isTypingTarget(target) {
+    return target instanceof HTMLElement
+      && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName));
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuOpen) {
+      event.preventDefault();
+      setMenu(false);
+      return;
+    }
+
+    if (event.key === '?' && !event.altKey && !event.ctrlKey && !event.metaKey
+      && !isTypingTarget(event.target) && !(help && help.open)) {
+      event.preventDefault();
+      openHelp(document.activeElement);
     }
   });
 

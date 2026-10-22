@@ -45,18 +45,36 @@
         <span class="brand__txt">Projeção <em>2026</em></span>
       </a>
       <nav class="nav__links" aria-label="Seções da página">
-        <a href="#placar">Placar</a>
-        <a href="#margem">Margem</a>
-        <a href="#transferencias">Transferências</a>
-        <a href="#abstencao">Abstenção</a>
-        <a href="#historico">Histórico</a>
-        <a href="#metodo">Método</a>
+        <a href="#placar" data-nav-link>Placar</a>
+        <a href="#margem" data-nav-link>Margem</a>
+        <a href="#transferencias" data-nav-link>Transferências</a>
+        <a href="#abstencao" data-nav-link>Abstenção</a>
+        <a href="#historico" data-nav-link>Histórico</a>
+        <a href="#metodo" data-nav-link>Método</a>
       </nav>
-      <span class="pill pill--warn"><span class="pill__dot"></span>Simulação</span>
+      <button class="nav__help" type="button" data-help-open aria-haspopup="dialog" aria-controls="help-dialog" aria-label="Como ler esta projeção" title="Como ler esta projeção">?</button>
+      <span class="pill pill--warn"><span class="pill__dot"></span><span class="pill__txt">Simulação</span></span>
+      <button class="nav__menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+        <span class="nav__menu__icon" aria-hidden="true"><span></span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="wrap mobile-menu__inner">
+        <nav class="mobile-menu__nav" aria-label="Seções da página">
+          <a href="#placar" data-nav-link><span class="mmenu__n" aria-hidden="true">01</span>Placar</a>
+          <a href="#margem" data-nav-link><span class="mmenu__n" aria-hidden="true">02</span>Margem</a>
+          <a href="#transferencias" data-nav-link><span class="mmenu__n" aria-hidden="true">03</span>Transferências</a>
+          <a href="#abstencao" data-nav-link><span class="mmenu__n" aria-hidden="true">04</span>Abstenção</a>
+          <a href="#historico" data-nav-link><span class="mmenu__n" aria-hidden="true">05</span>Histórico</a>
+          <a href="#metodo" data-nav-link><span class="mmenu__n" aria-hidden="true">06</span>Método</a>
+        </nav>
+        <button class="mobile-menu__help" type="button" data-help-open aria-haspopup="dialog" aria-controls="help-dialog">Como ler esta projeção <span aria-hidden="true">?</span></button>
+      </div>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="hero__aura hero__aura--a" aria-hidden="true"></div>
@@ -105,12 +123,12 @@
           <div class="hmeta"><span class="hmeta__k">Base do 1º turno</span><span class="hmeta__v"><span class="num" data-count="119300788">119.300.788</span></span></div>
         </div>
 
-        <p class="disclaimer reveal"><span class="disclaimer__icon" aria-hidden="true">!</span> <span class="disclaimer__txt">Simulação construída a partir de hipóteses sobre os votos do 1º turno. <strong>Não é pesquisa eleitoral nem apuração oficial.</strong></span></p>
+        <p class="disclaimer reveal"><span class="disclaimer__icon" aria-hidden="true">!</span> <span class="disclaimer__txt">Simulação construída a partir de hipóteses sobre os votos do 1º turno. <strong>Não é pesquisa eleitoral nem apuração oficial.</strong> <button class="disclaimer__help" type="button" data-help-open aria-haspopup="dialog" aria-controls="help-dialog">Como ler os números</button></span></p>
 
         <a class="hero__cta reveal" href="#placar">Ver o placar completo <span aria-hidden="true">↓</span></a>
       </div>
 
-      <a class="scrollcue" href="#placar" aria-label="Ir para o placar">
+      <a class="scrollcue" href="#placar" aria-label="Explorar os dados — ir para o placar">
         <span class="scrollcue__line" aria-hidden="true"><span></span></span>
         <span class="scrollcue__label">Explorar os dados <span class="scrollcue__arrow" aria-hidden="true">↓</span></span>
       </a>
@@ -644,6 +662,7 @@
               <p>Votos e percentuais informados para o 1º turno. A soma dos 12 candidatos é de <b>119.300.788</b> votos válidos; brancos e nulos não entram nessa base.</p>
               <div class="table-wrap table-wrap--base" tabindex="0" role="region" aria-label="Votos e percentuais dos 12 candidatos no 1º turno">
                 <table class="table table--base">
+                  <caption class="sr-only">Votos e percentuais dos 12 candidatos no 1º turno</caption>
                   <thead>
                     <tr><th scope="col">Candidato</th><th scope="col">Votos</th><th scope="col">% válidos</th></tr>
                   </thead>
@@ -701,6 +720,7 @@
           <span class="brand__txt">Projeção <em>2026</em></span>
         </a>
         <p class="footer__note">Simulação independente do 2º turno de 2026.<br>Não é pesquisa eleitoral nem resultado oficial.</p>
+        <button class="footer__help" type="button" data-help-open aria-haspopup="dialog" aria-controls="help-dialog">Como ler esta projeção</button>
       </div>
       <div class="footer__side">
         <div class="footer__actions">
@@ -708,12 +728,61 @@
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5h6.5V10" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3.5" y="5.5" width="7" height="7" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
             Copiar link
           </button>
+          <button class="btn" id="print-page" type="button">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.5h7v3h-7z" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="2.5" y="5.5" width="11" height="5.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 9.5h7v4h-7z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            Imprimir / PDF
+          </button>
           <a class="btn btn--ghost" href="#top">Voltar ao topo ↑</a>
         </div>
         <p class="footer__meta">HTML, CSS e JavaScript puro · outubro de 2026<br><a href="https://github.com/kauffmann07" rel="noopener">github.com/kauffmann07</a></p>
       </div>
     </div>
   </footer>
+
+  <dialog class="help-dialog" id="help-dialog" aria-labelledby="help-title" aria-describedby="help-intro">
+    <div class="help-dialog__panel">
+      <header class="help-dialog__head">
+        <div>
+          <p class="help-dialog__kicker">Guia rápido</p>
+          <h2 id="help-title">Como ler esta projeção</h2>
+        </div>
+        <button class="help-dialog__close" type="button" data-help-close aria-label="Fechar ajuda">&times;</button>
+      </header>
+
+      <div class="help-dialog__body">
+        <p id="help-intro">Esta página é um exercício de cenário. Ela parte dos votos do 1º turno, aplica hipóteses de transferência e comparecimento e projeta o resultado dos dois finalistas. <strong>Não é pesquisa eleitoral nem apuração oficial.</strong></p>
+
+        <div class="help-dialog__alert">
+          <span aria-hidden="true">!</span>
+          <p>Leia os números como cenário, não como previsão. As premissas estão abertas na seção Método.</p>
+        </div>
+
+        <h3>O que cada bloco mostra</h3>
+        <dl class="help-terms">
+          <div><dt>Placar</dt><dd>Votos finais projetados e o percentual de cada candidato entre os votos válidos dos dois.</dd></div>
+          <div><dt>Margem</dt><dd>Diferença em votos entre o 1º e o 2º colocado. Em p.p., é a distância direta entre os percentuais.</dd></div>
+          <div><dt>Transferências</dt><dd>Parcela dos votos dos 10 candidatos eliminados que migra para cada finalista. O restante fica como abstenção ou não transferência.</dd></div>
+          <div><dt>Abstenção</dt><dd>Quem deixa de votar e quem retorna. O saldo altera o total de comparecimentos e, por consequência, a margem.</dd></div>
+          <div><dt>p.p.</dt><dd>Pontos percentuais: uma diferença direta entre percentuais, não uma variação relativa.</dd></div>
+          <div><dt>Simulação</dt><dd>Cenário com premissas fixas. Não há coleta de intenção de voto nem contagem oficial.</dd></div>
+        </dl>
+
+        <h3>Navegação e controles</h3>
+        <p>Use o menu no topo para saltar entre os blocos. No celular, abra o menu pelo botão ao lado de “Simulação”. No fim da página, você pode copiar o link, imprimir ou salvar em PDF e voltar ao topo.</p>
+
+        <p class="help-dialog__note">Dados de outubro de 2026. Página estática, sem cookies ou analytics. Atalhos: <kbd>?</kbd> abre esta ajuda · <kbd>Esc</kbd> fecha.</p>
+
+        <div class="help-dialog__actions">
+          <button class="btn" type="button" data-help-close>Entendi</button>
+          <a class="btn btn--ghost" href="#metodo" data-help-close>Ver método completo</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo" hidden>
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js" defer></script>
